@@ -1,10 +1,12 @@
-# File: .github/workflows/android-build.yml
+ HEAD
+ 68a4caa (Add GitHub Actions workflow for Android APK build
 name: Android APK Build
 
 on:
   push:
     branches:
       - main
+<<<<<<< HEAD
   pull_request:
     branches:
       - main
@@ -28,11 +30,31 @@ jobs:
 
       # 3️⃣ Setup Android SDK
       - name: Setup Android SDK
+=======
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Android SDK
+>>>>>>> 68a4caa (Add GitHub Actions workflow for Android APK build)
         uses: android-actions/setup-android@v2
         with:
           api-level: 34
           build-tools: 34.0.3
 
+<<<<<<< HEAD
       # 4️⃣ Grant Gradle permissions
       - name: Make gradlew executable
         run: chmod +x ./gradlew
@@ -53,3 +75,13 @@ jobs:
         run: ./gradlew assembleRelease
 
       # 8️⃣ Upload Release
+=======
+      - name: Build APK
+        run: ./gradlew assembleDebug assembleRelease
+
+      - name: Upload APKs
+        uses: actions/upload-artifact@v3
+        with:
+          name: apk-outputs
+          path: app/build/outputs/apk/
+>>>>>>> 68a4caa (Add GitHub Actions workflow for Android APK build)
