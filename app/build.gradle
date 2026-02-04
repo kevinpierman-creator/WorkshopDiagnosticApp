@@ -1,0 +1,39 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace "com.workshop.diagnostic"
+    compileSdk 34
+
+    signingConfigs {
+        release {
+            keyAlias "workshop"
+            keyPassword "workshop123"
+            storeFile file("keystore.jks")
+            storePassword "workshop123"
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.workshop.diagnostic"
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+        }
+        release {
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+}
