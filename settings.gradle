@@ -1,2 +1,2 @@
-rootProject.name":WorkshopDiagnosticApp"
+rootProject.name ":WorkshopDiagnosticApp"
 include(":app")
