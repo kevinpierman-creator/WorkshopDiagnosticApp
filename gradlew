@@ -24,3 +24,4 @@ fi
 
 # Execute Gradle with the specified arguments
 "$JAVA_HOME/bin/java" -cp "$GRADLE_HOME/lib/*" org.gradle.launcher.GradleDaemon "$@"
+
