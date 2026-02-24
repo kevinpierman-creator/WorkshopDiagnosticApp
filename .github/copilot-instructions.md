@@ -35,7 +35,7 @@ WorkshopDiagnosticApp/
 ├── settings.gradle             # Root project name and module includes
 ├── gradle/wrapper/
 │   └── gradle-wrapper.properties  # Points to Gradle 8.4
-├── gradlew / gradlew.bat       # Gradle wrapper scripts
+├── gradlew                     # Gradle wrapper script (Unix/macOS)
 └── keystore.jks                # Release signing keystore (committed for demo purposes)
 ```
 
