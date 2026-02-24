@@ -92,7 +92,7 @@ All three workflows trigger on `push` and `pull_request` to `main`:
 ## Known Issues and Workarounds
 
 ### `settings.gradle` syntax
-The `settings.gradle` file uses `rootProject.name ":WorkshopDiagnosticApp"` (missing `=`), which is non-standard Groovy DSL. The correct form is `rootProject.name = "WorkshopDiagnosticApp"`. Additionally, the project name should not start with `:`. This may cause warnings during the build; the workaround is to tolerate the warning or fix the assignment.
+The `settings.gradle` file uses `rootProject.name ":WorkshopDiagnosticApp"` (missing `=`), which is non-standard Groovy DSL. The correct form is `rootProject.name = "WorkshopDiagnosticApp"`. Note that `rootProject.name` should not include a leading `:`, because it defines the root project identifier, while colons are reserved for project path references (for example, `:app`). This may cause warnings during the build; the workaround is to tolerate the warning or fix the assignment.
 
 ### `build.gradle` root plugin declaration
 The root `build.gradle` declares the Android Gradle Plugin with:
