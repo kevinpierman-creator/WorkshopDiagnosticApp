@@ -80,7 +80,7 @@ All three workflows trigger on `push` and `pull_request` to `main`:
 | Workflow | File | Purpose |
 |---|---|---|
 | Android APK Build | `android-build.yml` | Builds debug and release APKs and uploads them as artifacts |
-| CodeQL Advanced | `codeql.yml` | Static analysis for Java/Kotlin and GitHub Actions code |
+| CodeQL Advanced | `codeql.yml` | Static analysis for Java and GitHub Actions code |
 | Codacy Security Scan | `codacy.yml` | Security scanning (requires `CODACY_PROJECT_TOKEN` secret) |
 
 ### CI Environment
