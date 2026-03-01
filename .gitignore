@@ -1,0 +1,31 @@
+# Gradle files
+.gradle/
+build/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+# Local configuration file
+local.properties
+
+# Android Studio
+.idea/
+*.iml
+.externalNativeBuild
+.cxx/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build outputs
+app/build/
+*.apk
+*.ap_
+*.aab
+
+# Signing files (keystore.jks is intentionally tracked for demo purposes)
+
+# Misc
+*.log
+captures/
