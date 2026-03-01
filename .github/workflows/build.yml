@@ -23,4 +23,4 @@ jobs:
         run: chmod +x gradlew
       
       - name: Clean and build
-        run: ./gradlew clean assembleDebug
+        run: ./gradlew clean assembleDebug --stacktrace
