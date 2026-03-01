@@ -1,3 +1,8 @@
+---
+name: workshop-diagnostic-guidance
+description: Repository-specific instructions for Copilot coding agents working on WorkshopDiagnosticApp (Android/Java).
+---
+
 # Copilot Instructions for WorkshopDiagnosticApp
 
 ## Repository Overview
