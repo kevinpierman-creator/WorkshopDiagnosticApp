@@ -91,19 +91,6 @@ All three workflows trigger on `push` and `pull_request` to `main`:
 
 ## Known Issues and Workarounds
 
-### `settings.gradle` syntax
-The `settings.gradle` file uses `rootProject.name ":WorkshopDiagnosticApp"` (missing `=`), which is non-standard Groovy DSL. The correct form is `rootProject.name = "WorkshopDiagnosticApp"`. Note that `rootProject.name` should not include a leading `:`, because it defines the root project identifier, while colons are reserved for project path references (for example, `:app`). This may cause warnings during the build; the workaround is to tolerate the warning or fix the assignment.
-
-### `build.gradle` root plugin declaration
-The root `build.gradle` declares the Android Gradle Plugin with:
-```groovy
-id 'com.android.tools.build:gradle:8.3.2' apply false
-```
-This uses the Maven artifact coordinate as the plugin ID, which is incorrect. The canonical plugin ID is `com.android.application`. This can cause resolution warnings. The convention-compliant form is:
-```groovy
-id 'com.android.application' version '8.3.2' apply false
-```
-
 ### Codacy CI requires a secret
 The Codacy workflow uses `${{ secrets.CODACY_PROJECT_TOKEN }}`. If this secret is not configured in the repository, the Codacy scan step will run without authentication (which is supported for open-source projects using default tool configurations).
 
