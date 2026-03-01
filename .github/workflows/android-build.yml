@@ -32,24 +32,30 @@ jobs:
           api-level: 34
           build-tools: 34.0.3
 
-      # 4️⃣ Grant Gradle permissions
+      # 4️⃣ Cache Gradle dependencies
+      - name: Cache Gradle packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle', 'gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: ${{ runner.os }}-gradle-
+
+      # 5️⃣ Grant Gradle permissions
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
-      # 5️⃣ Build Debug APK
-      - name: Build Debug APK
-        run: ./gradlew clean assembleDebug
+      # 6️⃣ Build Debug and Release APKs
+      - name: Build Debug and Release APKs
+        run: ./gradlew assembleDebug assembleRelease
 
-      # 6️⃣ Upload Debug APK
+      # 7️⃣ Upload Debug APK
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
           name: WorkshopDiagnosticApp-debug.apk
           path: app/build/outputs/apk/debug/*.apk
-
-      # 7️⃣ Build Release APK
-      - name: Build Release APK
-        run: ./gradlew assembleRelease
 
       # 8️⃣ Upload Release APK
       - name: Upload Release APK

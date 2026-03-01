@@ -28,8 +28,11 @@ android {
             debuggable true
         }
         release {
-            minifyEnabled false
-            shrinkResources false
+            minifyEnabled true
+            shrinkResources true
+            // proguard-android-optimize.txt enables R8 full-mode with aggressive optimizations.
+            // If reflection-heavy libraries cause issues, switch to proguard-android.txt.
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
     }
