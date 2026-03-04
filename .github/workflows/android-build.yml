@@ -22,17 +22,14 @@ jobs:
 
       # 2️⃣ Setup JDK 21
       - name: Set up JDK 21
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 21
 
       # 3️⃣ Setup Android SDK
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
-        with:
-          api-level: 34
-          build-tools: 34.0.3
+        uses: android-actions/setup-android@v3
 
       # 4️⃣ Grant Gradle permissions
       - name: Make gradlew executable
@@ -40,7 +37,7 @@ jobs:
 
       # 5️⃣ Build Debug APK
       - name: Build Debug APK
-        run: ./gradlew clean assembleDebug
+        run: ./gradlew clean assembleDebug --stacktrace
 
       # 6️⃣ Upload Debug APK
       - name: Upload Debug APK
