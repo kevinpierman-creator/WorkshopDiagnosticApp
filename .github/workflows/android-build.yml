@@ -25,34 +25,32 @@ jobs:
           distribution: temurin
           java-version: 21
 
-      # 3️⃣ Setup Android SDK
+      # 3️⃣ Setup Android SDK and install required SDK components
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
+        uses: android-actions/setup-android@v3
+        with:
+          packages: "platforms;android-34 build-tools;34.0.0"
 
-      # 4️⃣ Install required SDK components
-      - name: Install Android SDK components
-        run: sdkmanager "platforms;android-34" "build-tools;34.0.3"
-
-      # 5️⃣ Grant Gradle permissions
+      # 4️⃣ Grant Gradle permissions
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
-      # 6️⃣ Build Debug APK
+      # 5️⃣ Build Debug APK
       - name: Build Debug APK
         run: ./gradlew clean assembleDebug
 
-      # 7️⃣ Upload Debug APK
+      # 6️⃣ Upload Debug APK
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
           name: WorkshopDiagnosticApp-debug.apk
           path: app/build/outputs/apk/debug/*.apk
 
-      # 8️⃣ Build Release APK
+      # 7️⃣ Build Release APK
       - name: Build Release APK
         run: ./gradlew assembleRelease
 
-      # 9️⃣ Upload Release APK
+      # 8️⃣ Upload Release APK
       - name: Upload Release APK
         uses: actions/upload-artifact@v4
         with:
