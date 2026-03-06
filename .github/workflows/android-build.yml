@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Build APKs
+    name: Lint, Test & Build APKs
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -35,22 +35,38 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
-      # 5️⃣ Build Debug APK
+      # 5️⃣ Run lint
+      - name: Run lint
+        run: ./gradlew lint
+
+      # 6️⃣ Run unit tests
+      - name: Run unit tests
+        run: ./gradlew test
+
+      # 7️⃣ Upload test results
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-results
+          path: app/build/reports/tests/
+
+      # 8️⃣ Build Debug APK
       - name: Build Debug APK
         run: ./gradlew clean assembleDebug --stacktrace
 
-      # 6️⃣ Upload Debug APK
+      # 9️⃣ Upload Debug APK
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
           name: WorkshopDiagnosticApp-debug.apk
           path: app/build/outputs/apk/debug/*.apk
 
-      # 7️⃣ Build Release APK
+      # 🔟 Build Release APK
       - name: Build Release APK
         run: ./gradlew assembleRelease
 
-      # 8️⃣ Upload Release APK
+      # 1️⃣1️⃣ Upload Release APK
       - name: Upload Release APK
         uses: actions/upload-artifact@v4
         with:
