@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "MainActivity successfully created");
         } catch (Exception e) {
             Log.e(TAG, "Error loading activity layout", e);
-            Toast.makeText(this, "Error loading app: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Error loading app. Please try again.", Toast.LENGTH_LONG).show();
             finish();
         }
     }
