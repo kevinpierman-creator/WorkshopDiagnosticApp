@@ -3,4 +3,6 @@
     <string name="app_name">Workshop Diagnostic App</string>
     <string name="error_loading_app">Error loading app. Please try again.</string>
     <!-- Other string resources -->
+    <string name="title_text">Workshop Diagnostic</string>
+    <string name="info_text">Welcome to the Workshop Diagnostic App</string>
 </resources>
