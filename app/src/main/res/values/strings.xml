@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Workshop Diagnostic</string>
-    <string name="title_text">Workshop Diagnostic Tool</string>
-    <string name="info_text">App is running. You can extend it with car diagnostic features.</string>
+    <string name="app_name">Workshop Diagnostic App</string>
+    <string name="error_loading_app">Error loading app. Please try again.</string>
+    <!-- Other string resources -->
+    <string name="title_text">Workshop Diagnostic</string>
+    <string name="info_text">Welcome to the Workshop Diagnostic App</string>
 </resources>
