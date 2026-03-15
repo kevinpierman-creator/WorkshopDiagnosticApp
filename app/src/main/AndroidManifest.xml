@@ -3,7 +3,7 @@
 
     <application
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.DeviceDefault">
+        android:theme="@style/Theme.WorkshopDiagnosticApp">
         <activity
             android:name=".MainActivity"
             android:exported="true">
